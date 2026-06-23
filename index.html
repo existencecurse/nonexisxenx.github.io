@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+my code sucks find a better thing to copy
+✌☞❄☜☼ ✌☹☹ ✡⚐🕆 ✌☠👎 ✋📪 🕈☜ ☟✌✞☜ 👌⚐❄☟ 👌☜☜☠ 🕈✌✋❄✋☠☝ 💧🕆👍☟ ✌ ✞☜☼✡ ☹⚐☠☝ ❄✋💣☜.
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣤⣤⣤⣤⣤⣤⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⢰⣾⠉⠉⠉⠉⠉⠉⠉⠉⣶⣶⣶⢀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⠠⣤⡿⢿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠿⣤⡄⠀⠀
+⠀⠀⠀⠀⢀⢠⣿⡇⢸⣿⠀⠀⠀⠀⠀⠀⢀⠠⢀⡀⠀⠀⣿⡇⠀⠀
+⠀⠀⠀⠀⢸⣿⠀⣤⡼⠿⠀⠀⠀⠀⠀⣤⣼⣿⣿⣧⣄⠀⠿⣧⣤⠀
+⠀⠀⠀⣶⣾⠉⠀⣿⣏⢀⠀⠀⢰⣶⠀⣿⣿⣿⣿⣿⣿⣶⠀⣽⣿⠀
+⠀⠀⠀⣿⣿⠀⠀⠿⢿⣿⠀⣠⣼⣿⠀⣾⣿⣿⣿⣿⣿⣿⠀⢾⣿⠀
+⠀⠀⠀⣿⣿⠀⣶⡆⢸⣿⣶⣿⣿⣿⠀⣽⣿⣿⣿⣿⣿⣿⠀⣻⣿⠀
+⠀⠀⠀⣿⣿⠀⠿⣿⣿⣿⣿⣿⡿⠿⠀⠀⠸⠿⣿⡿⠟⠀⠀⢿⣿⠀
+⠀⠀⠀⣿⡿⠀⠀⠛⢻⣿⣿⡟⠃⠀⠀⠀⠀⠠⣿⡇⠀⠀⠀⣿⣿⠀
+⠀⠀⠀⠀⢸⣿⠀⠀⢠⣤⠀⠀⠀⠀⠀⠀⠀⠐⣿⣧⣄⠀⠀⢿⣿⠀
+⠀⠀⠀⠀⢸⣿⠀⠀⢸⣿⣶⡆⠀⠀⠀⠀⠀⢈⣿⣿⣿⠀⣶⡟⠋⠀
+⠀⠀⠀⠀⠈⠠⣿⠇⠀⠈⠿⣿⣇⣀⣀⣿⣿⣿⠿⠇⢀⣀⠿⠇⠀⠀
+⠀⠀⠀⠀⠀⠀⠛⣷⣆⠀⠀⠙⢻⣿⣿⣿⣿⣿⠀⠀⢸⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣈⣿⣿⣧⣀⠀⠀⠈⠈⠿⠿⠷⠁⣀⣿⣿⣀⠀⠀⠀⠀
+⠀⠀⠀⠄⢸⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣶⣴⣶⣿⣿⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠠⣿⣿⣿⣿⣿⡇⠀⠀
+⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠂⠐⠀⠀⠠⣿⣿⣿⣿⣿⣧⣄⠀
+⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠐⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⢀⣤⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⢠⣬⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⡆⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⢘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⠀
+⠀⠸⣿⣿⣿⣿⠛⠛⢻⣿⣿⣿⣷⣶⠀⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣶
+⢸⣿⣿⡿⠿⠑⠿⠿⠿⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⣿⣿⣿⣿
+⢸⣿⣿⡇⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⠛⠃⢰⣶⠛⣻⣿⣿
+⢸⣿⣿⣃⡀⠀⠀⠀⢀⣐⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠸⠿⠀⣽⣿⣿
+⢸⣿⣿⣿⣿⣤⣧⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣴⡆⠀⠀⣶⣾⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠘⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛
+⠀⠀⠉⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠀
+⠀⠀⠀⠀⠘⠛⠛⠛⠛⠛⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⠛⠃⠀⠀
+⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀
+
+ -->
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>hello</title>
+</head>
+
+<body>
+
+  <
+
+<div class="crt"></div>
+
+<div class="box"> 
+  
+  <nav class="nav1"> 
+
+HELLO <br>
+
+idk bro i was hoping i could say more stuff but god i coded allat for nothing 
+anyway uhh this website has like most of my intrests in form of pics and gifs and all my links ig  
+have fun. </nav>   
+  <nav class="nav2">my links
+
+
+ <a href="https://www.instagram.com/nonexisxenx?igsh=cnJjN3dpdnp0NW1j" target="_blank">
+    <img src="instagram-logo-png-image-download-11617068196c1gb8cm06w.png" >
+  <a href="https://www.youtube.com/@Nonexisxenx" target="_blank">
+    <img src="YouTube_Logo_(2013-2017).svg.png" >
+  </a>
+  <a href="https://steamcommunity.com/profiles/76561199510913832/" target="_blank">
+    <img src="Steam_logo.svg" >
+  </a>
+
+  <a href="https://www.reddit.com/user/exixtnxexxx/" target="_blank">
+    <img src="reddit-logo.png" >
+
+  <a href="https://github.com/existencecurse" target="_blank">
+    <img src="github_PNG23.png" >
+  </a>
+
+  <a href="https://music.apple.com/profile/existencecurse?ls" target="_blank">
+    <img src="apple-music.svg" >
+  </a>
+<a href="https://x.com/existence_curse" target="_blank">
+    <img src="Twitter-Logo-2010.png" >
+<a href="https://existencecurse.newgrounds.com/" target="_blank">
+    <img src="Newgrounds-Logo.png" >
+  </a>
+<a href="https://soundcloud.com/suber-hazem?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank">
+    <img src="Soundcloud_logo.svg.png" >
+  </a>
+<a href="https://www.tiktok.com/@existencecurse?is_from_webapp=1&sender_device=pc" target="_blank">
+    <img src="TikTok_logo.svg.png"  >
+  </a>
+
+
+
+
+
+
+
+
+
+
+
+  </nav>
+  <main> I'm nonexisxenx and this is my website <Br>
+    dont know what to put here but im  a chronically online media consumer chud especially Video games ,B Movies , Music ,And Animations , i also make ironically shitty stuff (mostly because its easier to say its a joke than that i actually suck )
+    i do Art(mostly pixels) , music , 3d designs and everything basically even if i suck at them  and i love tech ,and yeah i almost forgot i use ARCH btw heh
+                                                                 hi hello im cool text me yo
+                                  genuinly wish i could've added more stuff to this, still might add them later tho(im never touching this again)
+                                <br>
+  <img src="assets/this-is-stupid-john-egbert.gif" class="main-pic">
+    <br> <br>
+                                  hi you could draw something here (no dicks please)
+                                  <hr> 
+
+ 
+  <div class="drawing-container">
+    <h3>Draw Something!</h3>
+    
+    <canvas id="paintCanvas" width="400" height="300"></canvas>
+    
+    <div class="controls">
+      <input type="color" id="colorPicker" value="#000000">
+      <button id="clearBtn">Clear</button>
+      <button id="saveBtn">Submit Drawing</button>
+    </div>
+  </div>
+
+ 
+  <div class="gallery-container">
+    <h3>Recent Drawings from Others</h3>
+    <div id="galleryBox" class="gallery-box">
+      <p class="no-drawings">No drawings submitted yet!</p>
+    </div>
+  </div>
+  </main>
+  <nav class="nav3">   <div 
+    class="pic-row">
+    <img src="assets/images.png">
+    <img src="">
+    <img src="assets/Anarchy-symbol.svg.png">
+    <img src="assets/palestine-flag-png-free-download.png">
+    
+  </div>
+ </nav>
+  <div class="tv-container">
+    <img src="assets/lv_0_20260622062714.gif" class="tv-screen">
+    <img src="Picsart_26-06-23_13-28-11-045.png" class="tv-frame">
+  </div>
+</div>
+
+<div class="player">
+  <audio id="audio"></audio>
+  <div class="player-inner">
+    <p class="song-title">no song selected</p>
+    <div class="progress-bar" onclick="seek(event)">
+      <div class="progress-fill"></div>
+    </div>
+    <div class="player-controls">
+      <button class="ctrl-btn" onclick="prevSong()">⏮</button>
+      <button class="play-btn" onclick="togglePlay()">▶</button>
+      <button class="ctrl-btn" onclick="nextSong()">⏭</button>
+      <button class="ctrl-btn" onclick="togglePlaylist()">☰</button>
+    </div>
+  </div>
+ <div class="playlist" id="playlist">
+  <p onclick="loadSong('songs/404.ogg', 'hello')">hello</p>
+  <p onclick="loadSong('songs/belair.ogg', 'beliar')">beliar</p>
+  <p onclick="loadSong('songs/choice.ogg', 'choice')">choice</p>
+  <p onclick="loadSong('songs/compendium.ogg', 'compendium')">compendium</p>
+  <p onclick="loadSong('songs/hello.ogg', 'im gay asf')">im gay asf</p>
+  <p onclick="loadSong('songs/order.ogg', 'orderless')">orderless</p>
+  <p onclick="loadSong('songs/status.ogg', 'status for smth ig')">status for smth ig</p>
+  <p onclick="loadSong('songs/vsauce.ogg', 'didyvsauce')">didyvsauce</p>
+</div>
+</div>
+
+<div class="badge-bar">
+  <div class="badge-strip">
+    <img src="webbadges/amd_powered.gif">
+    <img src="webbadges/half-life.gif">
+    <img src="webbadges/duke4net.gif">
+    <img src="webbadges/antinazi.4143352620.png">
+    <img src="webbadges/beyes.gif">
+    <img src="webbadges/download (1).png">
+    <img src="webbadges/piss.gif">
+    <img src="webbadges/ezgif2.gif">
+    <img src="webbadges/hatsunemiku1.gif">
+    <img src="webbadges/hotgraphics.gif">
+    <img src="webbadges/madewithneo.gif">
+    <img src="webbadges/neocities_hosted.gif">
+    <img src="webbadges/ng_tank.gif">
+    <img src="webbadges/pride.gif">
+    <img src="webbadges/ralseismokingadart.gif">
+    <img src="webbadges/shitify.gif">
+    <img src="webbadges/steam.gif">
+    <img src="webbadges/xp.gif">
+    <img src="webbadges/1.png">
+  </div>
+  <div class="badge-strip">
+    <img src="webbadges/amd_powered.gif">
+    <img src="webbadges/half-life.gif">
+    <img src="webbadges/duke4net.gif">
+    <img src="webbadges/antinazi.4143352620.png">
+    <img src="webbadges/beyes.gif">
+    <img src="webbadges/download (1).png">
+    <img src="webbadges/piss.gif">
+    <img src="webbadges/ezgif2.gif">
+    <img src="webbadges/hatsunemiku1.gif">
+    <img src="webbadges/hotgraphics.gif">
+    <img src="webbadges/madewithneo.gif">
+    <img src="webbadges/neocities_hosted.gif">
+    <img src="webbadges/ng_tank.gif">
+    <img src="webbadges/pride.gif">
+    <img src="webbadges/ralseismokingadart.gif">
+    <img src="webbadges/shitify.gif">
+    <img src="webbadges/steam.gif">
+    <img src="webbadges/xp.gif">
+    <img src="webbadges/1.png">
+  </div>
+</div>
+</div>
+
+<img src="assets/3PtbYnKx_400x400-1791365978.jpg" class="float1">
+<img src="assets/2604087263_preview_000_mouthtalk.gif" class="float2">
+<img src="assets/FRIEND_overworld.gif" class="float3">
+<img src="assets/4f2qfypit5a31-1038906877.gif" class="float4">
+<img src="assets/1200px-Swampert-3884504790.png" class="float5">
+<img src="assets/awyeahbitches.gif" class="float6">
+<img src="assets/FaceSet-Batter.webp" class="float7">
+<img src="assets/the-father-light-was-severed-v0-1lluk9i8z15b1.webp" class="float8">
+<img src="assets/Sollux_Captor.webp" class="float9">
+<img src="assets/Untitled10_20260623153313.webp" class="float10">
+<img src="assets/GubbyModel.png" class="float11">
+<img src="assets/470625-111054393.png" class="float12">
+<img src="assets/76cd421131dd53356aa76a0d04ea87db-629752535.png" class="float13">
+
+<script>
+  const audio = document.getElementById('audio');
+  const btn = document.querySelector('.play-btn');
+  const fill = document.querySelector('.progress-fill');
+  const title = document.querySelector('.song-title');
+
+  const songs = [
+    { src: 'songs/404.ogg', name: 'hello' },
+    { src: 'songs/belair.ogg', name: 'beliar' },
+    { src: 'songs/choice.ogg', name: 'choice' },
+    { src: 'songs/compendium.ogg', name: 'compendium' },
+    { src: 'songs/hello.ogg', name: 'im gay asf' },
+    { src: 'songs/order.ogg', name: 'orderless' },
+    { src: 'songs/status.ogg', name: 'status for smth ig' },
+    { src: 'songs/vsauce.ogg', name: 'didyvsauce' },
+    
+  ];
+
+  let current = 0;
+
+  function loadSong(src, name) {
+    audio.src = src;
+    title.textContent = name;
+    audio.play();
+    btn.textContent = '⏸';
+    togglePlaylist();
+  }
+
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = '⏸';
+    } else {
+      audio.pause();
+      btn.textContent = '▶';
+    }
+  }
+
+  function prevSong() {
+    current = (current - 1 + songs.length) % songs.length;
+    loadSong(songs[current].src, songs[current].name);
+  }
+
+  function nextSong() {
+    current = (current + 1) % songs.length;
+    loadSong(songs[current].src, songs[current].name);
+  }
+
+  function togglePlaylist() {
+    const pl = document.getElementById('playlist');
+    pl.style.display = pl.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function seek(e) {
+    const bar = e.currentTarget;
+    const percent = e.offsetX / bar.offsetWidth;
+    audio.currentTime = percent * audio.duration;
+  }
+
+  audio.addEventListener('timeupdate', () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    fill.style.width = percent + '%';
+  });
+
+  audio.addEventListener('ended', nextSong);
+ 
+const canvas = document.getElementById('paintCanvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('colorPicker');
+const clearBtn = document.getElementById('clearBtn');
+const saveBtn = document.getElementById('saveBtn');
+const galleryBox = document.getElementById('galleryBox');
+
+let drawing = false;
+
+
+ctx.lineWidth = 4;
+ctx.lineCap = 'round';
+
+function startDrawing(e) {
+  drawing = true;
+  draw(e);
+}
+
+function stopDrawing() {
+  drawing = false;
+  ctx.beginPath();
+}
+
+function draw(e) {
+  if (!drawing) return;
+  
+ 
+  const rect = canvas.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  ctx.strokeStyle = colorPicker.value;
+  ctx.lineTo(x, y);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+}
+
+
+canvas.addEventListener('mousedown', startDrawing);
+canvas.addEventListener('mouseup', stopDrawing);
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mouseleave', stopDrawing);
+
+
+clearBtn.addEventListener('click', () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+
+saveBtn.addEventListener('click', () => {
+  
+  const imageDataUrl = canvas.toDataURL('image/png');
+  
+  // Remove placeholder text if it's there
+  const noDrawingsMsg = document.querySelector('.no-drawings');
+  if(noDrawingsMsg) noDrawingsMsg.remove();
+
+  
+  const newImg = document.createElement('img');
+  newImg.src = imageDataUrl;
+  galleryBox.prepend(newImg);
+
+  // Reset the canvas
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  alert("Drawing submitted! (Note: Since this is local code, it won't persist across refreshes yet.)");
+});
+</script>
+
+
+
+</body>
+</html>

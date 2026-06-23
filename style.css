@@ -1,0 +1,491 @@
+@font-face {
+  font-family: diddy;
+  src: url(Press_Start_2P/PressStart2P-Regular.ttf);
+}
+
+body {
+  background-color: #1f0023;
+  background-image: url(assets/home.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin: 0;
+  font-family: diddy, monospace;
+  font-size: 10px;
+   line-height: 1.5;
+   position: relative;
+  min-height: 100vh; 
+  padding-bottom: 40px;
+}
+
+.box {
+  max-width: 1000px;
+  margin: 150px auto;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 200px minmax(0,1fr) 200px;
+  grid-gap: 8px;
+}
+
+ .nav1, .nav2, .nav3, main {
+  background-color: #04111ef9;
+  border-radius: 2px 4px 2px 2px;
+  border: 3px solid #112232a4;
+  box-shadow: 0 0 0 2px rgba(101, 214, 239, 0.371);
+  color: #a8e3e2;
+  padding: 8px;
+}
+
+
+.nav1  { grid-row: 1 / 3; grid-column: 1 / 2; }
+main   { grid-row: 1 / 3; grid-column: 2 / 3; }
+.nav2 { 
+  grid-row: 1 / 2; 
+  grid-column: 3 / 4; 
+}
+.nav3 { 
+  grid-row: 2 / 3; 
+  grid-column: 3 / 4; 
+}
+
+.nav2, .nav3 {
+  height: auto;
+}
+
+.tv-container {
+  position: absolute; /* or fixed */
+  top: 400px;
+  left: 170px;
+  width: 200px;
+  background-color: black;
+  overflow: hidden;
+  padding-bottom: 20px;
+  padding-right: 10px;
+}
+
+.tv-screen {
+  width: 65%;
+  display: block;
+  margin: auto;
+  margin-top: 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.tv-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.badge-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 31px;
+  overflow: hidden;
+  z-index: 10001;
+  background-color: rgba(15, 5, 20, 0.95);
+  display: flex;
+  align-items: center;
+}
+
+.badge-strip {
+  display: flex;
+  align-items: center;
+  animation: scroll 15s linear infinite;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badge-bar:hover .badge-strip {
+  animation-play-state: paused;
+}
+
+.badge-strip img {
+  height: 20px;
+  margin-right: 4px;
+}
+
+@keyframes glitch {
+  0%   { transform: rotate(6deg); filter: none; opacity: 1; }
+  10%  { transform: rotate(6deg) skewX(4deg); filter: hue-rotate(90deg) saturate(3); opacity: 0.8; }
+  11%  { transform: rotate(6deg) skewX(-4deg); filter: hue-rotate(180deg); opacity: 1; }
+  12%  { transform: rotate(6deg); filter: none; }
+  50%  { transform: rotate(6deg); filter: none; opacity: 1; }
+  51%  { transform: rotate(6deg) translateX(3px); filter: hue-rotate(270deg) saturate(5); opacity: 0.6; }
+  52%  { transform: rotate(6deg) translateX(-3px); filter: hue-rotate(90deg); opacity: 1; }
+  53%  { transform: rotate(6deg); filter: none; }
+  90%  { transform: rotate(6deg); filter: none; opacity: 1; }
+  91%  { transform: rotate(6deg) skewY(2deg); filter: invert(1); opacity: 0.7; }
+  92%  { transform: rotate(6deg); filter: none; opacity: 1; }
+  100% { transform: rotate(6deg); filter: none; opacity: 1; }
+}
+
+.player {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  width: 250px;
+  padding: 30px;
+   z-index: 9998;
+  animation: glitch 4s infinite;
+  /* NO clip-path here anymore */
+}
+
+.player::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 45, 57, 0.95);
+  clip-path: polygon(4% 32%, 14% 26%, 23% 15%, 81% 1%, 91% 5%, 99% 44%, 93% 69%, 73% 83%, 52% 91%, 28% 76%, 8% 75%, 8% 57%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.player-inner {
+  background-color: rgba(5, 15, 20, 0.85);
+  padding: 10px;
+  border-radius: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.song-title {
+  color: #a8e3e2;
+  font-size: 8px;
+  margin: 0 0 8px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255,255,255,0.1);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #a8e3e2;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.ctrl-btn, .play-btn {
+  background-color: rgba(42, 182, 190, 0.2);
+  border: 1px solid rgba(42, 182, 190, 0.5);
+  color: #a8e3e2;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-family: diddy, monospace;
+  font-size: 8px;
+}
+
+.ctrl-btn:hover, .play-btn:hover {
+  background-color: rgba(42, 182, 190, 0.4);
+}
+
+.playlist {
+  display: none;
+  background-color: rgba(5, 15, 20, 0.95);
+  border: 1px solid rgba(42, 182, 190, 0.5);
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 10;
+  padding: 8px;
+}
+
+.playlist p {
+  color: #a8e3e2;
+  font-size: 8px;
+  cursor: pointer;
+  padding: 4px;
+  margin: 0;
+}
+
+.playlist p:hover {
+  background-color: rgba(42, 182, 190, 0.2);
+}
+
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+   z-index: 100000;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.25) 2px,
+    rgba(0, 0, 0, 0.25) 4px
+  );
+  animation: flicker 0.15s infinite;
+}
+
+.crt::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+}
+
+@keyframes flicker {
+  0%   { opacity: 0.97; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.97; }
+}
+
+.drawing-container, .gallery-container {
+  background: #fff;
+  border: 2px solid #333;
+  padding: 15px;
+  margin: 20px 0; 
+  box-sizing: border-box;
+  width: 100%; 
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px #333;
+}
+
+canvas {
+  border: 1px dashed #666;
+  background: #fdfdfd;
+  cursor: crosshair;
+  display: block;
+  
+  
+  max-width: 100%;
+  height: auto;
+}
+
+.controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.gallery-box {
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  min-height: 150px;
+  padding: 10px;
+  display: grid;
+ 
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+  gap: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.gallery-box img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  background: white;
+  box-sizing: border-box;
+}
+
+.nav1, .nav2, .nav3 {
+  max-height: fit-content;
+  overflow: auto; /
+}
+
+
+.drawing-container, 
+.gallery-container {
+  position: relative;
+  z-index: 10000; 
+}
+
+canvas {
+  position: relative;
+  z-index: 10001; 
+}
+
+.controls {
+  position: relative;
+  z-index: 10001;
+}
+
+.nav1, .nav2, .nav3 , main {
+  max-height: fit-content;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.crt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; 
+  z-index: 9999;
+}
+.main-pic {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  border-radius: 4px;
+}
+
+.float1 {
+  position: absolute;
+  top: 60%;
+  right: 5px;
+  width: 150px;
+  z-index: 50;
+}
+
+.float2 {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  width: 130px;
+  z-index: 50;
+}
+
+.float3 {
+  position: absolute;
+  top: 75%;
+  left: 130px;
+  width: 150px;
+  z-index: 50;
+}
+.float4 {
+  position: absolute;
+  top: 27%;
+  right: 20px;
+  width: 250px;
+  z-index: 50;
+}
+
+.float5 {
+  position: absolute;
+  top: 75%;
+  right: 400px;
+  width: 95px;
+  z-index: 50;
+}
+
+.float6 {
+  position: absolute;
+  bottom: 30px;
+  left: 5px;
+  width: 300px;
+  z-index: 50;
+}
+
+.float7 {
+  position: absolute;
+  top: 40%;
+  left: 20px;
+  width: 300px;
+  z-index: 50;
+}
+
+.float8 {
+  position: absolute;
+  bottom: 20px;
+  right: 5px;
+  width: 260px;
+  z-index: 50;
+}
+
+.float9 {
+  position: absolute;
+  top: 20%;
+  left: 17px;
+  width: 150px;
+  z-index: 50;
+}
+
+.float10 {
+  position: absolute;
+  top: -4.2%;
+  left: 27%;
+  width: 600px;
+  z-index: 50;
+}
+.float11 {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  width: 130px;
+  z-index: 50;
+}
+.float12 {
+  position: absolute;
+  bottom: 166px;
+  right: 0%;
+  width: 200px;
+  z-index: 50;
+}
+.float13 {
+  position: absolute;
+  top: 41%;
+  right: 15%;
+  width: 100px;
+  z-index: 50;
+}
+
+.pic-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pic-row img {
+  width: 45%;
+}
+.nav2 a {
+  display: block;
+  margin: 5px 0;
+}
+
+.nav2 a img {
+  width: 88px; 
+  height: 31px;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.nav2 a:hover img {
+  opacity: 0.8;
+}
